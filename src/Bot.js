@@ -31,28 +31,11 @@ class Bot {
 			m: 'a',
 			message: `\u034f${txt}` // unicode for protection
 		}]);
+	}
 
-		/**
-		 * ? Further explanation for the weird unicode character:
-		 * 
-		 * If someone sets their name to a
-		 * bot command, this could potentially
-		 * run commands as this bot, which is
-		 * something we want to avoid at all
-		 * costs. Another way to potentially
-		 * solve this is checking if the user
-		 * is us/another bot with either the
-		 * tag or the user ID (_id).
-		 */
+	setUser(name, color) {
+		this.client.sendArray([{ m: 'userset', set: { name, color } }]);
 	}
 }
-
-/**
- * if you would rather pass the token
- * in for each instance of the bot
- * instead of using the same one,
- * you can literally just put
- * it in the constructor
- */
 
 module.exports = { Bot }
